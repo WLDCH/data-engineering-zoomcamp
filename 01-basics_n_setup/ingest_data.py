@@ -15,6 +15,7 @@ def main(params):
     db = params.db
     table_name = params.table_name
     url = params.url
+    zone = params.zone
     
     # the backup files are gzipped, and it's important to keep the correct extension
     # for pandas to be able to open the file
@@ -31,8 +32,11 @@ def main(params):
 
     df = next(df_iter)
 
-    df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-    df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+    if zone:
+        pass
+    else:
+        df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+        df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
 
     df.head(n=0).to_sql(name=table_name, con=engine, if_exists='replace')
 
@@ -46,8 +50,11 @@ def main(params):
             
             df = next(df_iter)
 
-            df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-            df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+            if zone:
+                pass
+            else:
+                df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+                df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
 
             df.to_sql(name=table_name, con=engine, if_exists='append')
 
@@ -69,6 +76,7 @@ if __name__ == '__main__':
     parser.add_argument('--db', required=True, help='database name for postgres')
     parser.add_argument('--table_name', required=True, help='name of the table where we will write the results to')
     parser.add_argument('--url', required=True, help='url of the csv file')
+    parser.add_argument('--zone', required=False, help='whether you download the zone dataset or not')
 
     args = parser.parse_args()
 
