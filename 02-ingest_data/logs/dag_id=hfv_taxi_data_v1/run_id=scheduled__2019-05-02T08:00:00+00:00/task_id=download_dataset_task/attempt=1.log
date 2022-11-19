@@ -1,0 +1,30 @@
+[2022-11-19T17:36:26.684+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: hfv_taxi_data_v1.download_dataset_task scheduled__2019-05-02T08:00:00+00:00 [queued]>
+[2022-11-19T17:36:26.735+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: hfv_taxi_data_v1.download_dataset_task scheduled__2019-05-02T08:00:00+00:00 [queued]>
+[2022-11-19T17:36:26.740+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T17:36:26.740+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2022-11-19T17:36:26.740+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T17:36:26.796+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): download_dataset_task> on 2019-05-02 08:00:00+00:00
+[2022-11-19T17:36:26.826+0000] {standard_task_runner.py:55} INFO - Started process 57952 to run task
+[2022-11-19T17:36:26.872+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'hfv_taxi_data_v1', 'download_dataset_task', 'scheduled__2019-05-02T08:00:00+00:00', '--job-id', '177', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_homework.py', '--cfg-path', '/tmp/tmpczyhmir1']
+[2022-11-19T17:36:26.889+0000] {standard_task_runner.py:83} INFO - Job 177: Subtask download_dataset_task
+[2022-11-19T17:36:27.182+0000] {task_command.py:376} INFO - Running <TaskInstance: hfv_taxi_data_v1.download_dataset_task scheduled__2019-05-02T08:00:00+00:00 [running]> on host b8836091f311
+[2022-11-19T17:36:27.257+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:204: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-11-19T17:36:27.345+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=hfv_taxi_data_v1
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-05-02T08:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-05-02T08:00:00+00:00
+[2022-11-19T17:36:27.347+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-11-19T17:36:27.348+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'curl -sSLf https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2019-05.parquet > /opt/***/fhv_tripdata_2019-05.parquet']
+[2022-11-19T17:36:27.371+0000] {subprocess.py:86} INFO - Output:
+[2022-11-19T17:36:28.022+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2022-11-19T17:36:28.114+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=hfv_taxi_data_v1, task_id=download_dataset_task, execution_date=20190502T080000, start_date=20221119T173626, end_date=20221119T173628
+[2022-11-19T17:36:28.223+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T17:36:28.326+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
