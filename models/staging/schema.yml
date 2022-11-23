@@ -3,9 +3,9 @@ version: 2
 sources:
     - name: staging
       #For bigquery:
-      #database: dtc-de-course-368514
+      database: dtc-de-course-368514
 
-      # For postgres:
+      # For postgres:dtc-de-course-368514.trips_data_all.green_tripdata_external_table
       # database: production
 
       schema: trips_data_all
